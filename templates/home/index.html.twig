@@ -3,18 +3,32 @@
 {% block title %}Hello HomeController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    {%  include 'nav.html.twig' %}
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success" role="alert">{{ message }}</div>
+    {% endfor %}
+    
+    <div class="background">
+        <div class="container-xxl">
+            <div class="row pt-5 justify-content-between align-items-center">
+                <div class="col-lg-7 img_accueil_order">
+                    <div class="img_accueil">
+                        <div class="img_container"> <img src="{{asset('img/hotel1.jpeg')}}" class="img_1" alert="image de l'hotel"> </div>
+                        <div class="img_container">  <img src="{{asset('img/hotel2.jpeg')}}" class="img_2"  alert="image de l'hotel"> </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 text_accueil_order my-5">
+                    <div>
+                        <h1>Lorem ipsum</h1>
+                        <p>Ac ne quis a nobis hoc ita dici forte miretur, quod alia quaedam in hoc facultas sit ingeni, neque haec dicendi ratio aut disciplina, ne nos quidem huic uni studio penitus umquam dediti fuimus. Etenim omnes artes, quae ad humanitatem pertinent, habent quoddam commune vinculum, et quasi cognatione quadam inter se continentur.</p>
+                        <a class="btn btn-primary" href="#" > Nos hotels </a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/Applications/MAMP/htdocs/ECF/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/Applications/MAMP/htdocs/ECF/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
-    </ul>
-</div>
+    </div>
+    
+    
+    {%  include 'footer.html.twig' %}
 {% endblock %}
